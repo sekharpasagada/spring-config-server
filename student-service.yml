@@ -43,7 +43,7 @@ spring:
   application:
     name: "STUDENT-SERVICE"
   boot:
-    message: Hello, Student Service
+    message: Hello, Student Service Updated
 eureka:
   client:
     service-url:
