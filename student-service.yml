@@ -42,7 +42,8 @@ spring:
         dialect: org.hibernate.dialect.MySQL8Dialect
   application:
     name: "STUDENT-SERVICE"
-        
+  boot:
+    message: Hello, Student Service
 eureka:
   client:
     service-url:
