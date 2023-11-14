@@ -56,4 +56,4 @@ spring:
   application:
     name: "DEPARTMENT-SERVICE"
   boot:
-    message:  Hello, Department Service
+    message:  Hello, My Department Service
