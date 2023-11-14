@@ -1,0 +1,54 @@
+info:
+  app:
+    description: Spring Boot Resful Web Services
+    name: Spring Boot Resful Web Services
+    version: 1.0.0
+management:
+  server:
+    port: 8011
+    address: 127.0.0.1
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /manage
+  
+  endpoint:
+    health:
+      show-details: always
+    configprops:
+      show-values: always  
+    env:
+      show-values: always  
+    shutdown:
+      enabled: true
+       
+  info:
+    env:
+      enabled: true
+server:
+  port: 8001
+spring:
+  datasource:
+    password: example_pass
+    url: jdbc:mysql://127.0.0.1:3307/students_database
+    username: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+  application:
+    name: "STUDENT-SERVICE"
+        
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8002/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 20
+    lease-renewal-interval-in-seconds:   10 
+    prefer-ip-address: true  
+    hostname: ${vcap.application.uris[0]:localhost}      
