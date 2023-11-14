@@ -1,0 +1,57 @@
+info:
+  app:
+    description: Oragranization Rest API
+    name: Oragranization Rest API
+    version: 1.0.0
+
+
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8002/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 20
+    lease-renewal-interval-in-seconds:   10 
+    prefer-ip-address: true  
+    hostname: ${vcap.application.uris[0]:localhost}      
+
+management:
+  server:
+    port: 8010
+    address: 127.0.0.1
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+      base-path: /manage
+  
+  endpoint:
+    health:
+      show-details: always
+    configprops:
+      show-values: always  
+    env:
+      show-values: always  
+    shutdown:
+      enabled: true
+       
+  info:
+    env:
+      enabled: true
+server:
+  port: 8000
+spring:
+  datasource:
+    password: example_pass
+    url: jdbc:mysql://127.0.0.1:3307/org_database
+    username: root
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+      
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQLDialect
+  application:
+    name: "DEPARTMENT-SERVICE"
