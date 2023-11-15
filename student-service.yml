@@ -4,14 +4,14 @@ info:
     name: Spring Boot Resful Web Services
     version: 1.0.0
 management:
-  server:
-    port: 8011
-    address: 127.0.0.1
+#  server:
+#    port: 8011
+#    address: 127.0.0.1
   endpoints:
     web:
       exposure:
         include: '*'
-      base-path: /manage
+#      base-path: /manage
   
   endpoint:
     health:
