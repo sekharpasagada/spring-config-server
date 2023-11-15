@@ -16,14 +16,14 @@ eureka:
     hostname: ${vcap.application.uris[0]:localhost}      
 
 management:
-  server:
-    port: 8010
-    address: 127.0.0.1
+ # server:
+ #   port: 8010
+ #   address: 127.0.0.1
   endpoints:
     web:
       exposure:
         include: '*'
-      base-path: /manage
+  #    base-path: /manage
   
   endpoint:
     health:
