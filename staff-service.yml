@@ -1,8 +1,6 @@
 spring:
   application:
     name: STAFF-SERVICE
-  config:
-    import: optional:configserver:http://localhost:8888 
   datasource:
     url: jdbc:mysql://127.0.0.1:3307/staff_database
     password: example_pass
