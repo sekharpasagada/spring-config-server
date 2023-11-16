@@ -1,0 +1,61 @@
+spring:
+  application:
+    name: STAFF-SERVICE
+  config:
+    import: optional:configserver:http://localhost:8888 
+  datasource:
+    url: jdbc:mysql://127.0.0.1:3307/staff_database
+    password: example_pass
+    username: root
+  rabbitmq:
+    host: localhost
+    username: guest
+    password: guest
+    port: 5672
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL8Dialect
+logging:
+ level:
+    org.springframework.web: DEBUG
+ pattern:
+   level: '%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]'     
+
+server:
+  port: 8004
+        
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  
+  endpoint:
+    circuitbreakers:
+      enabled: true
+    health:
+      show-details: always
+    configprops:
+      show-values: always  
+    env:
+      show-values: always  
+    shutdown:
+      enabled: true
+       
+  info:
+    env:
+      enabled: true
+      
+eureka:
+  client:
+    service-url:
+     defaultZone: http://localhost:8002/eureka
+  instance:
+    lease-expiration-duration-in-seconds: 20
+    lease-renewal-interval-in-seconds:   10 
+    prefer-ip-address: true  
+    hostname: ${vcap.application.uris[0]:localhost}   
